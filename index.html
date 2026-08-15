@@ -26,6 +26,8 @@
                             teal: '#0D9488',
                             accent: '#FF5722',
                             gold: '#D97706',
+                            goldHover: '#B45309',
+                            emerald: '#059669',
                             lightBg: '#F8FAFC'
                         }
                     },
@@ -39,16 +41,16 @@
     </script>
     <style>
         .glass-header {
-            background: rgba(15, 44, 89, 0.95);
+            background: rgba(10, 29, 58, 0.95);
             backdrop-filter: blur(12px);
         }
         .hero-gradient {
-            background: radial-gradient(circle at 10% 20%, rgba(0, 168, 204, 0.18) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(255, 87, 34, 0.12) 0%, transparent 40%),
-                        linear-gradient(135deg, #0A1D3A 0%, #0F2C59 60%, #1A365D 100%);
+            background: radial-gradient(circle at 10% 20%, rgba(0, 168, 204, 0.2) 0%, transparent 45%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 87, 34, 0.15) 0%, transparent 45%),
+                        linear-gradient(135deg, #0A1D3A 0%, #0F2C59 55%, #1A365D 100%);
         }
         .badge-pulse {
-            animation: pulse-slow 3s infinite;
+            animation: pulse-slow 2.5s infinite;
         }
         @keyframes pulse-slow {
             0%, 100% { opacity: 1; transform: scale(1); }
@@ -61,27 +63,30 @@
             background-color: #CBD5E1;
             border-radius: 9999px;
         }
+        .tab-active {
+            border-bottom: 3px solid #00A8CC;
+            color: #00A8CC;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-cyan selection:text-white">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-cyan selection:text-white flex flex-col min-h-screen">
 
     <!-- PROMO ANNOUNCEMENT BAR -->
-    <div class="bg-gradient-to-r from-amber-500 via-brand-accent to-amber-600 text-white text-xs sm:text-sm font-bold py-2.5 px-4 text-center shadow-md relative z-50">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
+    <div class="bg-gradient-to-r from-amber-600 via-brand-accent to-amber-600 text-white text-xs sm:text-sm font-bold py-2.5 px-4 text-center shadow-md relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3">
             <span class="inline-flex items-center gap-1.5 bg-white/20 px-2.5 py-0.5 rounded-full text-white text-xs font-extrabold uppercase tracking-wide">
-                <i class="fa-solid fa-fire text-yellow-300"></i> Beneficio Exclusivo
+                <i class="fa-solid fa-fire text-yellow-300"></i> Beneficio de Inscripción
             </span>
-            <span>Inscribiéndote antes del <strong>15/08</strong> accedes al <strong>100% de bonificación en la Matrícula</strong> (ahorrás $ 50.000.-)</span>
-            <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20quiero%20aprovechar%20la%20bonificación%20del%20100%25%20en%20la%20Matrícula%20de%20Data%20Analytics" 
-               target="_blank" 
-               class="underline hover:text-slate-100 font-extrabold sm:ml-2 flex items-center gap-1">
-               Asegurar cupo <i class="fa-solid fa-arrow-right text-xs"></i>
+            <span>Inscribiéndote antes del <strong>18/08</strong> accedes al <strong>100% de bonificación en la Matrícula</strong> (ahorrás $50.000.-)</span>
+            <a href="#inscripcion" 
+               class="underline hover:text-amber-200 font-extrabold sm:ml-2 flex items-center gap-1 transition-colors">
+               Inscribirme ahora <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
         </div>
     </div>
 
     <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 left-0 right-0 z-40 glass-header text-white transition-all duration-300 shadow-lg border-b border-white/10">
+    <nav class="sticky top-0 left-0 right-0 z-40 glass-header text-white transition-all duration-300 shadow-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logotype / Badges -->
             <a href="#" class="flex items-center gap-3 group">
@@ -98,35 +103,57 @@
             <!-- Nav Links (Desktop) -->
             <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold">
                 <a href="#programa" class="hover:text-brand-cyan transition-colors">El Programa</a>
-                <a href="#inversion" class="hover:text-brand-cyan transition-colors text-amber-300">Inversión & Cuotas</a>
                 <a href="#plan-estudios" class="hover:text-brand-cyan transition-colors">Plan de Estudios</a>
+                <a href="#inversion" class="hover:text-brand-cyan transition-colors text-amber-300 font-bold">Inversión & Cuotas</a>
                 <a href="#metodologia" class="hover:text-brand-cyan transition-colors">Metodología</a>
-                <a href="#contacto" class="hover:text-brand-cyan transition-colors">Contacto</a>
+                <a href="#respaldo" class="hover:text-brand-cyan transition-colors">Respaldo UNC</a>
+                <a href="#faq" class="hover:text-brand-cyan transition-colors">Preguntas</a>
             </div>
 
-            <!-- Header Action Button (Direct to Jorge) -->
+            <!-- Header Action Button (Direct to Jorge / Enrollment) -->
             <div class="flex items-center gap-3">
+                <a href="#inscripcion" 
+                   class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <span class="hidden sm:inline">Inscribirme</span>
+                </a>
+                
                 <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20quiero%20más%20información%20sobre%20la%20Certificación%20Universitaria%20en%20Data%20Analytics" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg shadow-emerald-500/30 transition-all transform hover:-translate-y-0.5">
+                   class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs sm:text-sm font-bold px-3.5 sm:px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg shadow-emerald-500/30 transition-all">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span class="hidden xs:inline">Consultar a Jorge</span>
-                    <span class="xs:hidden">Consultar</span>
+                    <span class="hidden md:inline">Jorge De Angeli</span>
                 </a>
+
+                <!-- Mobile menu toggle -->
+                <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-slate-300 hover:text-white text-xl">
+                    <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-darkBlue border-b border-white/10 px-4 py-4 space-y-3 text-sm font-semibold">
+            <a href="#programa" onclick="toggleMobileNav()" class="block py-2 text-slate-200 hover:text-brand-cyan">El Programa</a>
+            <a href="#plan-estudios" onclick="toggleMobileNav()" class="block py-2 text-slate-200 hover:text-brand-cyan">Plan de Estudios</a>
+            <a href="#inversion" onclick="toggleMobileNav()" class="block py-2 text-amber-300 font-bold">Inversión y Financiación</a>
+            <a href="#metodologia" onclick="toggleMobileNav()" class="block py-2 text-slate-200 hover:text-brand-cyan">Metodología</a>
+            <a href="#respaldo" onclick="toggleMobileNav()" class="block py-2 text-slate-200 hover:text-brand-cyan">Respaldo UNC & FCEFyN</a>
+            <a href="#faq" onclick="toggleMobileNav()" class="block py-2 text-slate-200 hover:text-brand-cyan">Preguntas Frecuentes</a>
+            <a href="#inscripcion" onclick="toggleMobileNav()" class="block py-2 text-center bg-amber-500 text-slate-950 rounded-xl font-bold">Portal de Inscripción</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="pt-12 pb-20 lg:pt-16 lg:pb-24 hero-gradient text-white relative overflow-hidden">
+    <header class="pt-10 pb-20 lg:pt-16 lg:pb-24 hero-gradient text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Hero Main Content -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                        <span class="px-3 py-1 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-bold tracking-wide uppercase badge-pulse flex items-center gap-1.5">
+                        <span class="px-3.5 py-1 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-bold tracking-wide uppercase badge-pulse flex items-center gap-1.5">
                             <i class="fa-solid fa-graduation-cap"></i> Certificación Oficial UNC + FCEFyN + Mundos E
                         </span>
                         <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-bold uppercase tracking-wide">
@@ -139,77 +166,77 @@
                     </h1>
 
                     <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                        Formación integral en análisis de datos. Domina <strong>Excel Avanzado, Power BI, SQL, Python e Inteligencia Artificial</strong> para la automatización de procesos de decisiones estratégicas.
+                        Formación ejecutiva e integral en análisis de datos. Domina <strong>Excel Avanzado, Power BI, SQL, Python e Inteligencia Artificial Generativa</strong> para la toma de decisiones estratégicas.
                     </p>
 
-                    <!-- Date & Discount Highlights Pill -->
-                    <div class="p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md max-w-xl mx-auto lg:mx-0 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                    <!-- Start Date & Discount Highlights Box -->
+                    <div class="p-4 sm:p-5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md max-w-xl mx-auto lg:mx-0 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left shadow-lg">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center text-lg shrink-0">
+                            <div class="w-11 h-11 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center text-xl shrink-0">
                                 <i class="fa-regular fa-calendar-check"></i>
                             </div>
                             <div>
-                                <div class="text-[11px] text-slate-300 font-medium uppercase tracking-wider">Próximo Inicio</div>
-                                <div class="text-sm font-extrabold text-white">18 DE AGOSTO 2026</div>
+                                <div class="text-[11px] text-slate-300 font-medium uppercase tracking-wider">Próximo Inicio Académico</div>
+                                <div class="text-sm sm:text-base font-extrabold text-white">18 DE AGOSTO 2026</div>
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                            <div class="w-11 h-11 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl shrink-0">
                                 <i class="fa-solid fa-tags"></i>
                             </div>
                             <div>
-                                <div class="text-[11px] text-slate-300 font-medium uppercase tracking-wider">Descuento Especial</div>
-                                <div class="text-sm font-extrabold text-emerald-400">26% OFF Contado / 6 CSIs</div>
+                                <div class="text-[11px] text-slate-300 font-medium uppercase tracking-wider">Beneficio Promocional</div>
+                                <div class="text-sm sm:text-base font-extrabold text-emerald-400">26% OFF / 6 Cuotas Sin Interés</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Key Metrics Pills -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
                         <div class="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                             <i class="fa-regular fa-clock text-brand-cyan text-lg mb-1"></i>
-                            <div class="text-xs text-slate-400">Duración</div>
+                            <div class="text-[11px] text-slate-400">Duración</div>
                             <div class="font-bold text-sm text-white">4 Meses</div>
                         </div>
                         <div class="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                             <i class="fa-solid fa-video text-brand-cyan text-lg mb-1"></i>
-                            <div class="text-xs text-slate-400">Modalidad</div>
+                            <div class="text-[11px] text-slate-400">Modalidad</div>
                             <div class="font-bold text-sm text-white">Online En Vivo</div>
                         </div>
                         <div class="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                             <i class="fa-solid fa-users text-brand-cyan text-lg mb-1"></i>
-                            <div class="text-xs text-slate-400">Encuentros</div>
+                            <div class="text-[11px] text-slate-400">Encuentros</div>
                             <div class="font-bold text-sm text-white">20 Clases</div>
                         </div>
                         <div class="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                             <i class="fa-solid fa-laptop-code text-brand-cyan text-lg mb-1"></i>
-                            <div class="text-xs text-slate-400">Carga Horaria</div>
+                            <div class="text-[11px] text-slate-400">Carga Horaria</div>
                             <div class="font-bold text-sm text-white">40hs Cursada</div>
                         </div>
                     </div>
 
                     <!-- Call To Action Group -->
-                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20quiero%20inscribirme%20a%20la%20Certificación%20en%20Data%20Analytics%20con%20el%20descuento" 
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-base px-8 py-4 rounded-xl shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-1">
-                            <i class="fa-brands fa-whatsapp text-xl"></i>
-                            <span>Inscribirme con Jorge De Angeli</span>
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+                        <a href="#inscripcion" 
+                           class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-base px-8 py-4 rounded-xl shadow-xl shadow-amber-500/25 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-user-plus text-lg"></i>
+                            <span>Asegurar mi Vacante Ahora</span>
                         </a>
 
-                        <a href="#inversion" 
-                           class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold text-base px-6 py-4 rounded-xl border border-white/20 flex items-center justify-center gap-2 transition-all">
-                            <i class="fa-solid fa-credit-card"></i>
-                            <span>Ver Opciones de Pago</span>
+                        <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20quiero%20consultar%20por%20la%20Certificación%20en%20Data%20Analytics" 
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-base px-6 py-4 rounded-xl shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2.5 transition-all">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Consultar a Jorge De Angeli</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Advisor Contact Highlight Card (Jorge De Angeli) -->
+                <!-- Advisor Contact & Registration Highlight Card (Jorge De Angeli) -->
                 <div class="lg:col-span-5">
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl relative">
-                        <div class="absolute -top-3 right-6 bg-brand-cyan text-brand-darkBlue font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
+                        <div class="absolute -top-3.5 right-6 bg-brand-cyan text-brand-darkBlue font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
                             Asesor Exclusivo
                         </div>
 
@@ -219,34 +246,34 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-white">Jorge De Angeli</h3>
-                                <p class="text-xs text-brand-cyan font-semibold">Asesor Educativo y Admisiones Académicas</p>
+                                <p class="text-xs text-brand-cyan font-semibold">Asesor Educativo & Admisiones Académicas</p>
                                 <p class="text-xs text-slate-300">Mundos E | Universidad Nacional de Córdoba</p>
                             </div>
                         </div>
 
                         <div class="space-y-3 text-xs sm:text-sm text-slate-200 border-t border-b border-white/10 py-4 mb-6">
-                            <p class="flex items-center gap-3">
+                            <p class="flex items-center gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>Te acompaño en el proceso de admisión y pago.</span>
+                                <span>Acompañamiento personalizado en tu admisión y facturación.</span>
                             </p>
-                            <p class="flex items-center gap-3">
+                            <p class="flex items-center gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>Matrícula 100% Bonificada al inscribirte antes del 15/08.</span>
+                                <span><strong>Matrícula 100% Bonificada</strong> al inscribirte antes del 15/08.</span>
                             </p>
-                            <p class="flex items-center gap-3">
+                            <p class="flex items-center gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>Asesoramiento para profesionales y convenios de empresa.</span>
+                                <span>Convenios para empresas y facturación corporativa (A/B).</span>
                             </p>
                         </div>
 
-                        <!-- Direct Contacts -->
+                        <!-- Direct Contacts Button Group -->
                         <div class="space-y-2.5">
                             <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20me%20gustaría%20recibir%20el%20folleto%20y%20precios%20de%20la%20Certificación%20en%20Data%20Analytics" 
                                target="_blank"
                                rel="noopener noreferrer"
-                               class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md">
+                               class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md text-sm">
                                 <i class="fa-brands fa-whatsapp text-lg"></i>
-                                <span>WhatsApp: +54 9 351 657-3170</span>
+                                <span>WhatsApp Directo: +54 9 351 657-3170</span>
                             </a>
 
                             <div class="grid grid-cols-2 gap-2">
@@ -255,7 +282,7 @@
                                    rel="noopener noreferrer"
                                    class="bg-white/10 hover:bg-white/20 text-white text-xs font-semibold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 border border-white/15 transition-colors">
                                     <i class="fa-brands fa-linkedin text-blue-400"></i>
-                                    <span>Perfil LinkedIn</span>
+                                    <span>LinkedIn</span>
                                 </a>
 
                                 <a href="https://www.mundose.com" 
@@ -263,7 +290,7 @@
                                    rel="noopener noreferrer"
                                    class="bg-white/10 hover:bg-white/20 text-white text-xs font-semibold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 border border-white/15 transition-colors">
                                     <i class="fa-solid fa-globe text-brand-cyan"></i>
-                                    <span>www.mundose.com</span>
+                                    <span>mundose.com</span>
                                 </a>
                             </div>
                         </div>
@@ -274,133 +301,11 @@
         </div>
     </header>
 
-    <!-- INVESTMENT & PRICING SECTION -->
-    <section id="inversion" class="py-20 bg-slate-100 border-b border-slate-200 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full">Inversión y Financiación</span>
-                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-darkBlue mt-3">
-                    Planes de Inversión y Beneficios Exclusivos
-                </h2>
-                <p class="mt-3 text-slate-600 text-base">
-                    Aprovecha los descuentos vigentes para la cohorte con inicio este <strong>18 de Agosto de 2026</strong>.
-                </p>
-            </div>
-
-            <!-- Pricing Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                
-                <!-- Option 1: Cash Transfer (Best Value) -->
-                <div class="bg-white rounded-2xl p-8 border-2 border-brand-cyan shadow-xl relative flex flex-col justify-between transform hover:-translate-y-1 transition-all">
-                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-cyan text-brand-darkBlue font-black text-xs px-4 py-1 rounded-full uppercase tracking-wider">
-                        Más Popular (-26% OFF)
-                    </div>
-                    <div>
-                        <div class="text-center pb-6 border-b border-slate-100">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pago Único Promocional</span>
-                            <div class="text-4xl font-extrabold text-brand-darkBlue mt-2">$ 607.543<span class="text-sm font-normal text-slate-500">.-</span></div>
-                            <p class="text-xs text-slate-500 mt-1">Abonando en un solo pago por Transferencia</p>
-                            <span class="inline-block mt-3 bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full">
-                                Incluye -29% OFF Descuento Especial
-                            </span>
-                        </div>
-                        <ul class="py-6 space-y-3 text-xs text-slate-600">
-                            <li class="flex items-center gap-2">
-                                <i class="fa-solid fa-check text-emerald-500"></i>
-                                <span>Ahorro inmediato frente al valor regular.</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="fa-solid fa-check text-emerald-500"></i>
-                                <span>Matrícula <strong>100% bonificada</strong> antes del 15/08.</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="fa-solid fa-check text-emerald-500"></i>
-                                <span>Acceso completo a plataforma y certificaciones.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20quiero%20abonar%20la%20Certificación%20en%20Data%20Analytics%20por%20transferencia%20($380.167)" 
-                       target="_blank" 
-                       class="w-full bg-brand-cyan hover:bg-cyan-600 text-brand-darkBlue font-bold py-3.5 px-4 rounded-xl text-center text-sm transition-colors block">
-                       Aprovechar 26% OFF con Jorge
-                    </a>
-                </div>
-
-                <!-- Option 2: 6 Interest Free Installments -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-md flex flex-col justify-between hover:shadow-lg transition-all">
-                    <div>
-                        <div class="text-center pb-6 border-b border-slate-100">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Financiación en Cuotas</span>
-                            <div class="text-4xl font-extrabold text-brand-darkBlue mt-2">12x $ 82.520<span class="text-sm font-normal text-slate-500">.-</span></div>
-                            <p class="text-xs text-slate-500 mt-1">Cuotas sin interés con Tarjeta de Crédito</p>
-                            <span class="inline-block mt-3 bg-blue-100 text-brand-blue text-xs font-extrabold px-3 py-1 rounded-full">
-                                Financiación Flexible
-                            </span>
-                        </div>
-                        <ul class="py-6 space-y-3 text-xs text-slate-600">
-                            <li class="flex items-center gap-2">
-                                <i class="fa-solid fa-check text-emerald-500"></i>
-                                <span>Cuotas fijas sin interés durante el cursado.</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="fa-solid fa-check text-emerald-500"></i>
-                                <span>Matrícula <strong>100% bonificada</strong> antes del 15/08.</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="fa-solid fa-check text-emerald-500"></i>
-                                <span>Procesamiento seguro con tarjeta bancaria.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20quiero%20información%20sobre%20el%20pago%20en%206%20cuotas%20sin%20interés%20de%20Data%20Analytics" 
-                       target="_blank" 
-                       class="w-full bg-brand-blue hover:bg-brand-darkBlue text-white font-bold py-3.5 px-4 rounded-xl text-center text-sm transition-colors block">
-                       Pagar en 6 Cuotas sin Interés
-                    </a>
-                </div>
-
-                <!-- Regular Value & Matricula Promo summary card -->
-                <div class="bg-gradient-to-br from-brand-darkBlue to-brand-navy rounded-2xl p-8 text-white shadow-xl flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Detalles de Valor Regular</span>
-                        <div class="mt-3">
-                            <div class="text-xs text-slate-400 line-through">Valor regular del programa:</div>
-                            <div class="text-2xl font-extrabold text-slate-200">$ 990.245.-</div>
-                        </div>
-
-                        <!-- Special Matricula Bonus Alert -->
-                        <div class="mt-6 p-4 rounded-xl bg-white/10 border border-amber-400/40 text-xs space-y-2">
-                            <div class="font-bold text-amber-300 flex items-center gap-1.5 text-sm">
-                                <i class="fa-solid fa-gift text-base"></i> Bonificación de Matrícula
-                            </div>
-                            <p class="text-slate-200 leading-relaxed">
-                                Inscribiéndote antes del <strong>15/08</strong> accedes al <strong>100% de bonificación</strong> en la Matrícula de Inscripción.
-                            </p>
-                            <div class="font-extrabold text-emerald-400 text-sm">
-                                ¡Ahorrás $ 50.000.- extra!
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 pt-6 border-t border-white/10">
-                        <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20necesito%20que%20me%20asesores%20sobre%20los%20descuentos%20de%20matrícula%20y%20precios" 
-                           target="_blank" 
-                           class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl text-center text-sm transition-colors flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            <span>Consultar Promoción con Jorge</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
     <!-- INSTITUTIONAL ENDORSEMENT & UNC STATS SECTION -->
-    <section class="bg-white py-12 border-b border-slate-200">
+    <section id="respaldo" class="bg-white py-12 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p class="text-center text-xs font-bold uppercase tracking-wider text-slate-400 mb-8">
-                Certificación respaldada por las instituciones educativas más prestigiosas
+                Certificación académica respaldada por las instituciones más prestigiosas
             </p>
             
             <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-16 pb-12 border-b border-slate-100">
@@ -408,7 +313,7 @@
                     <i class="fa-solid fa-university text-brand-blue text-3xl"></i>
                     <div>
                         <span>UNC</span>
-                        <span class="text-xs font-normal text-slate-500 block">Univ. Nacional de Córdoba</span>
+                        <span class="text-xs font-normal text-slate-500 block">Universidad Nacional de Córdoba</span>
                     </div>
                 </div>
                 <div class="flex items-center gap-3 font-heading font-extrabold text-slate-800 text-xl">
@@ -432,27 +337,27 @@
                     Universidad Nacional de Córdoba • Una de las más prestigiosas de Latinoamérica
                 </h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                         <div class="text-xl font-black text-brand-blue">137 MIL</div>
                         <div class="text-[11px] text-slate-500 mt-1 font-semibold">Alumnos</div>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                         <div class="text-xl font-black text-brand-blue">15</div>
                         <div class="text-[11px] text-slate-500 mt-1 font-semibold">Facultades</div>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                         <div class="text-xl font-black text-brand-blue">+250</div>
                         <div class="text-[11px] text-slate-500 mt-1 font-semibold">Carreras Grado/Posgrado</div>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                         <div class="text-xl font-black text-brand-blue">100</div>
                         <div class="text-[11px] text-slate-500 mt-1 font-semibold">Centros de Investigación</div>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                         <div class="text-xl font-black text-brand-blue">25</div>
                         <div class="text-[11px] text-slate-500 mt-1 font-semibold">Bibliotecas</div>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                         <div class="text-xl font-black text-brand-blue">16</div>
                         <div class="text-[11px] text-slate-500 mt-1 font-semibold">Museos</div>
                     </div>
@@ -471,11 +376,11 @@
                     ¿Qué lograrás en esta Certificación?
                 </h3>
                 <p class="mt-4 text-slate-600 text-base leading-relaxed">
-                    Un recorrido desde los principios básicos hasta técnicas avanzadas de análisis, visualización y automatización con Inteligencia Artificial.
+                    Un recorrido progresivo desde los principios estadísticos hasta técnicas avanzadas de análisis, visualización y automatización asistida por Inteligencia Artificial.
                 </p>
             </div>
 
-            <!-- Benefits Grid (From PDF Benefits Page 6) -->
+            <!-- Benefits Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow relative overflow-hidden group">
@@ -484,7 +389,7 @@
                     </div>
                     <h4 class="text-xl font-bold text-brand-darkBlue mb-3">1. Aprende los Fundamentos</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Comprenderás la estadística y aplicarás herramientas clave como Excel y Google Sheets para recopilar, organizar y analizar datos en contextos reales.
+                        Comprenderás la estadística aplicada y dominarás Excel Avanzado y Google Sheets para recopilar, organizar y analizar datos de negocios en escenarios reales.
                     </p>
                 </div>
 
@@ -494,7 +399,7 @@
                     </div>
                     <h4 class="text-xl font-bold text-brand-darkBlue mb-3">2. Visualiza y Transforma</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Desarrollarás habilidades en Power BI para transformar grandes volúmenes de datos en dashboards interactivos que faciliten decisiones basadas en evidencia.
+                        Desarrollarás tableros interactivos en Power BI con lenguaje DAX, transformando datos complejos en métricas claras para la toma de decisiones.
                     </p>
                 </div>
 
@@ -504,7 +409,7 @@
                     </div>
                     <h4 class="text-xl font-bold text-brand-darkBlue mb-3">3. Extrae, Filtra y Manipula</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Aplicarás consultas en lenguaje SQL para extraer y filtrar datos almacenados en bases de datos relacionales con MySQL y Workbench.
+                        Consultarás bases de datos relacionales mediante lenguaje SQL, realizando JOINs, agrupaciones y procedimientos avanzados en MySQL Workbench.
                     </p>
                 </div>
 
@@ -512,9 +417,9 @@
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
                         <i class="fa-brands fa-python"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-brand-darkBlue mb-3">4. Integra Herramientas & IA</h4>
+                    <h4 class="text-xl font-bold text-brand-darkBlue mb-3">4. Programación para Data</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Utilizarás Python para análisis avanzado de datos, incorporando conceptos de Inteligencia Artificial para enriquecer las métricas.
+                        Utilizarás Python con librerías como Pandas, NumPy, Matplotlib y Seaborn para el análisis exploratorio y tratamiento masivo de datos.
                     </p>
                 </div>
 
@@ -522,9 +427,9 @@
                     <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-purple-500 group-hover:text-white transition-colors">
                         <i class="fa-solid fa-robot"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-brand-darkBlue mb-3">5. Automatiza Procesos</h4>
+                    <h4 class="text-xl font-bold text-brand-darkBlue mb-3">5. Automatiza con IA Generativa</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Implementarás procesos de automatización con Python e Inteligencia Artificial Generativa, optimizando tareas repetitivas del flujo analítico.
+                        Integrarás Inteligencia Artificial Generativa y scripts de automatización para acelerar la limpieza, código y análisis predictivo de datos.
                     </p>
                 </div>
 
@@ -532,9 +437,9 @@
                     <div class="w-12 h-12 rounded-xl bg-brand-accent/10 text-brand-accent flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors">
                         <i class="fa-solid fa-award"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-brand-darkBlue mb-3">6. Proyecto Integrador Real</h4>
+                    <h4 class="text-xl font-bold text-brand-darkBlue mb-3">6. Proyecto Integrador Portafolio</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Desarrollarás a lo largo del cursado un Trabajo Final aplicado a un caso práctico de negocio para enriquecer tu portafolio profesional.
+                        Construirás un proyecto final aplicado a un caso real de empresa, listo para ser exhibido en tu LinkedIn y portafolio profesional.
                     </p>
                 </div>
             </div>
@@ -545,7 +450,7 @@
     <section class="py-16 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 opacity-10 text-brand-cyan text-9xl font-black">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-brand-cyan text-9xl font-black select-none pointer-events-none">
                     UNC
                 </div>
 
@@ -556,20 +461,20 @@
                         
                         <div class="space-y-3 text-sm text-slate-300 pt-2">
                             <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-laptop text-brand-cyan"></i>
-                                <span><strong>Modalidad:</strong> Online con contenido en plataforma en vivo</span>
+                                <i class="fa-solid fa-laptop text-brand-cyan w-5 text-center"></i>
+                                <span><strong>Modalidad:</strong> Clases sincrónicas en vivo + Plataforma Multimodal</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-calendar-days text-brand-cyan"></i>
+                                <i class="fa-solid fa-calendar-days text-brand-cyan w-5 text-center"></i>
                                 <span><strong>Encuentros:</strong> 20 encuentros (4 meses de cursado)</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-clock text-brand-cyan"></i>
-                                <span><strong>Carga Horaria:</strong> 40 horas de cursada</span>
+                                <i class="fa-solid fa-clock text-brand-cyan w-5 text-center"></i>
+                                <span><strong>Carga Horaria:</strong> 40 horas de cursada sincrónica</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-gauge text-brand-cyan"></i>
-                                <span><strong>Dedicación:</strong> Media (2 a 4 horas extras semanales de práctica)</span>
+                                <i class="fa-solid fa-gauge text-brand-cyan w-5 text-center"></i>
+                                <span><strong>Dedicación:</strong> Media (2 a 4 horas semanales de práctica)</span>
                             </div>
                         </div>
                     </div>
@@ -581,19 +486,19 @@
                         </h4>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-200">
-                            <div class="p-3 rounded-lg bg-white/5 border border-white/10">
+                            <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
                                 <span class="font-bold text-brand-cyan block mb-1">Hardware Requerido</span>
                                 <p>PC o Notebook con sistema operativo Windows 10 u 11.</p>
                             </div>
-                            <div class="p-3 rounded-lg bg-white/5 border border-white/10">
-                                <span class="font-bold text-brand-cyan block mb-1">Software de Base</span>
+                            <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                                <span class="font-bold text-brand-cyan block mb-1">Software Base</span>
                                 <p>Microsoft Excel instalado y cuenta activa en Google.</p>
                             </div>
                         </div>
 
                         <div class="p-4 rounded-xl bg-brand-cyan/20 border border-brand-cyan/30 text-xs text-slate-200">
-                            <span class="font-bold text-white block mb-1">Herramientas que Instalaremos Juntos (Guiado Paso a Paso):</span>
-                            <p class="text-slate-300">Power BI Desktop, Visual Studio Code (+ extensiones), Python (+ librerías como Pandas, NumPy, Seaborn), MySQL y MySQL Workbench.</p>
+                            <span class="font-bold text-white block mb-1"><i class="fa-solid fa-download mr-1"></i> Herramientas que Instalaremos Juntos (Paso a Paso):</span>
+                            <p class="text-slate-300">Power BI Desktop, Visual Studio Code, Python (+ Pandas, NumPy, Seaborn), MySQL y MySQL Workbench.</p>
                         </div>
                     </div>
                 </div>
@@ -611,7 +516,7 @@
                     Plan de Estudios Detallado
                 </h3>
                 <p class="mt-4 text-slate-600 text-base">
-                    Organizado en 4 módulos teórico-prácticos pensados para un aprendizaje progresivo.
+                    Organizado en 4 módulos teórico-prácticos estructurados para un aprendizaje progresivo.
                 </p>
             </div>
 
@@ -654,12 +559,12 @@
                     <div class="p-6 bg-brand-cyan/10 rounded-2xl border border-brand-cyan/20 text-xs space-y-3">
                         <div class="font-bold text-brand-darkBlue flex items-center gap-2">
                             <i class="fa-solid fa-file-pdf text-brand-cyan text-lg"></i>
-                            <span>¿Deseas el programa en PDF?</span>
+                            <span>¿Deseas el programa completo en PDF?</span>
                         </div>
-                        <p class="text-slate-600">Jorge De Angeli te envía el folleto completo con el desglose tema por tema.</p>
+                        <p class="text-slate-600">Jorge De Angeli te envía el folleto completo con el desglose tema por tema directamente a tu WhatsApp.</p>
                         <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20deseo%20recibir%20el%20folleto%20PDF%20del%20programa%20Data%20Analytics" 
                            target="_blank" 
-                           class="inline-flex items-center gap-2 font-bold text-brand-blue hover:text-brand-cyan">
+                           class="inline-flex items-center gap-2 font-bold text-brand-blue hover:text-brand-cyan transition-colors">
                             <span>Solicitar PDF a Jorge</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
@@ -674,7 +579,7 @@
                         <div class="border-b border-slate-200 pb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan">Módulo 1</span>
                             <h4 class="text-2xl font-bold text-brand-darkBlue mt-1">Fundamentos y Herramientas Clave</h4>
-                            <p class="text-sm text-slate-500 mt-1">Principios estadísticos y dominio de Excel y Google Sheets.</p>
+                            <p class="text-sm text-slate-500 mt-1">Principios estadísticos y dominio práctico de Excel y Google Sheets.</p>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
@@ -699,15 +604,15 @@
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Tablas dinámicas en Excel y Google Sheets.</span>
+                                <span class="text-sm text-slate-700">Tablas dinámicas avanzadas en Excel y Google Sheets.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Funciones avanzadas en Excel y Sheets.</span>
+                                <span class="text-sm text-slate-700">Funciones lógicas, de búsqueda y anidadas.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Macros en Excel y Google Sheets.</span>
+                                <span class="text-sm text-slate-700">Macros e introducción a la automatización.</span>
                             </div>
                         </div>
                     </div>
@@ -717,7 +622,7 @@
                         <div class="border-b border-slate-200 pb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan">Módulo 2</span>
                             <h4 class="text-2xl font-bold text-brand-darkBlue mt-1">Power BI para el Análisis Estratégico</h4>
-                            <p class="text-sm text-slate-500 mt-1">Modelado de datos, DAX y creación de tableros ejecutivos interactivos.</p>
+                            <p class="text-sm text-slate-500 mt-1">Modelado de datos, lenguaje DAX y tableros de control ejecutivos.</p>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
@@ -730,11 +635,11 @@
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Conexión de datos y normalización (Proceso ETL).</span>
+                                <span class="text-sm text-slate-700">Conexión de datos y normalización (Proceso ETL con Power Query).</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Modelo Relacional de datos.</span>
+                                <span class="text-sm text-slate-700">Modelo Relacional de datos (Star Schema).</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
@@ -746,11 +651,11 @@
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Elementos visuales y formato profesional.</span>
+                                <span class="text-sm text-slate-700">Elementos visuales e interactividad avanzada.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Ejercicio práctico de armado de Dashboard.</span>
+                                <span class="text-sm text-slate-700">Ejercicio práctico de armado de Dashboard en vivo.</span>
                             </div>
                         </div>
                     </div>
@@ -765,35 +670,35 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Introducción a SQL y bases de datos relacionales.</span>
+                                <span class="text-sm text-slate-700">Introducción a SQL y bases relacionales.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Instalación de MySQL y base de datos local.</span>
+                                <span class="text-sm text-slate-700">Instalación de MySQL y entorno Workbench.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Creación de tablas y restricciones.</span>
+                                <span class="text-sm text-slate-700">Creación de tablas, claves y restricciones.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Sentencias básicas y agregaciones en SQL.</span>
+                                <span class="text-sm text-slate-700">Sentencias SELECT, WHERE, GROUP BY y HAVING.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">JOIN, UNION e Intersect.</span>
+                                <span class="text-sm text-slate-700">JOINs (Inner, Left, Right) y uniones.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Índices, vistas, ventanas y procedimientos.</span>
+                                <span class="text-sm text-slate-700">Subconsultas y funciones de ventana.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Creación de vistas y Jobs de trabajo.</span>
+                                <span class="text-sm text-slate-700">Creación de Vistas (Views) y optimización.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Caso práctico (Primera parte del Workshop).</span>
+                                <span class="text-sm text-slate-700">Caso práctico relacional integrador (Workshop SQL).</span>
                             </div>
                         </div>
                     </div>
@@ -808,35 +713,35 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Instalación de VS Code, Python y librerías.</span>
+                                <span class="text-sm text-slate-700">Configuración de VS Code, Python y librerías.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Tipos de datos y funciones con NumPy.</span>
+                                <span class="text-sm text-slate-700">Arreglos y cálculos con NumPy.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Análisis y manipulación con Pandas.</span>
+                                <span class="text-sm text-slate-700">Tratamiento de DataFrames con Pandas.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Gráficos con Matplotlib y Seaborn.</span>
+                                <span class="text-sm text-slate-700">Visualizaciones avanzadas con Matplotlib y Seaborn.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Conexión con archivos CSV y bases SQL.</span>
+                                <span class="text-sm text-slate-700">Conexión de Python con CSV, Excel y SQL.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Uso de IA en Python y criterios de optimización.</span>
+                                <span class="text-sm text-slate-700">Uso de IA Generativa para agilizar código y análisis.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3">
                                 <i class="fa-solid fa-square-check text-brand-cyan mt-1"></i>
-                                <span class="text-sm text-slate-700">Caso práctico (Segunda parte del Workshop).</span>
+                                <span class="text-sm text-slate-700">Workshop práctico de Python aplicado.</span>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-start gap-3 font-bold text-brand-blue">
                                 <i class="fa-solid fa-award text-amber-500 mt-1"></i>
-                                <span class="text-sm">Presentación de Proyectos Integradores.</span>
+                                <span class="text-sm">Presentación de Proyectos Integradores Finales.</span>
                             </div>
                         </div>
                     </div>
@@ -846,77 +751,261 @@
         </div>
     </section>
 
+    <!-- INVESTMENT & REGISTRATION PORTAL -->
+    <section id="inversion" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3.5 py-1 rounded-full border border-amber-400/20">
+                    Opciones de Inversión y Financiación
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4">
+                    Planes de Inversión y Beneficios Vigentes
+                </h2>
+                <p class="mt-3 text-slate-300 text-base">
+                    Coordinado conjuntamente por <strong>Mundos E y la Universidad Nacional de Córdoba</strong> para el inicio de <strong>Agosto 2026</strong>.
+                </p>
+            </div>
+
+            <!-- Pricing Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch mb-16">
+                
+                <!-- Option 1: Cash Transfer (Best Value) -->
+                <div class="bg-slate-800/90 rounded-2xl p-8 border-2 border-brand-cyan shadow-2xl relative flex flex-col justify-between transform hover:-translate-y-1 transition-all">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-cyan text-brand-darkBlue font-black text-xs px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
+                        Ahorro Máximo (-29% OFF)
+                    </div>
+                    <div>
+                        <div class="text-center pb-6 border-b border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pago Único Contado</span>
+                            <div class="text-4xl font-extrabold text-white mt-2">$ 607.543<span class="text-sm font-normal text-slate-400">.-</span></div>
+                            <p class="text-xs text-slate-300 mt-1">Abonando mediante transferencia bancaria</p>
+                            <span class="inline-block mt-3 bg-emerald-500/20 text-emerald-400 text-xs font-extrabold px-3 py-1 rounded-full border border-emerald-500/30">
+                                Incluye -29% Descuento Especial
+                            </span>
+                        </div>
+                        <ul class="py-6 space-y-3 text-xs text-slate-300">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-400"></i>
+                                <span>Ahorro directo inmediato sobre el valor regular.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-400"></i>
+                                <span>Matrícula <strong>100% bonificada</strong> (Ahorrás $50.000).</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-400"></i>
+                                <span>Certificación Universitaria UNC + FCEFyN + Mundos E.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                <!-- Option 2: 6 Interest Free Installments -->
+                <div class="bg-slate-800/90 rounded-2xl p-8 border border-slate-700 shadow-xl flex flex-col justify-between hover:border-slate-500 transition-all">
+                    <div>
+                        <div class="text-center pb-6 border-b border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Financiación en Cuotas</span>
+                            <div class="text-4xl font-extrabold text-white mt-2">12 x $ 82.520<span class="text-sm font-normal text-slate-400">.-</span></div>
+                            <p class="text-xs text-slate-300 mt-1">12 Cuotas Fijas sin interés con Tarjeta</p>
+                            <span class="inline-block mt-3 bg-blue-500/20 text-blue-300 text-xs font-extrabold px-3 py-1 rounded-full border border-blue-500/30">
+                                Sin Interés con Tarjeta
+                            </span>
+                        </div>
+                        <ul class="py-6 space-y-3 text-xs text-slate-300">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-400"></i>
+                                <span>Pagos congelados durante todo el cursado.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-400"></i>
+                                <span>Matrícula <strong>100% bonificada</strong> antes del 15/08.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-emerald-400"></i>
+                                <span>Procesamiento seguro bancario.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                <!-- Regular Value & Matricula Promo summary card -->
+                <div class="bg-gradient-to-br from-brand-navy to-slate-900 rounded-2xl p-8 border border-white/10 text-white shadow-xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Resumen de Promoción</span>
+                        <div class="mt-3">
+                            <div class="text-xs text-slate-400 line-through">Valor regular del programa:</div>
+                            <div class="text-2xl font-extrabold text-slate-200">$ 990.245.-</div>
+                        </div>
+
+                        <!-- Special Matricula Bonus Alert -->
+                        <div class="mt-6 p-4 rounded-xl bg-white/10 border border-amber-400/40 text-xs space-y-2">
+                            <div class="font-bold text-amber-300 flex items-center gap-1.5 text-sm">
+                                <i class="fa-solid fa-gift text-base"></i> Bonificación de Matrícula
+                            </div>
+                            <p class="text-slate-200 leading-relaxed">
+                                Inscribiéndote antes del <strong>15/08</strong> accedes al <strong>100% de bonificación</strong> en la Matrícula de Inscripción.
+                            </p>
+                            <div class="font-extrabold text-emerald-400 text-sm">
+                                ¡Ahorrás $ 50.000.- extra!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                        <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20necesito%20que%20me%20asesores%20sobre%20los%20descuentos%20y%20facturación" 
+                           target="_blank" 
+                           class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl text-center text-sm transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Consultar otras opciones de pago</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FORMULARIO DE INSCRIPCIÓN UNIFICADO -->
+            <div id="inscripcion" class="bg-white text-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-200 max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest bg-brand-cyan/10 px-3.5 py-1 rounded-full">
+                        Portal Oficial de Inscripción
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-brand-darkBlue mt-2">
+                        Reserva tu Lugar para la Cohorte 18 de Agosto
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        Completa tus datos y genera la solicitud de reserva directa gestionada por Jorge De Angeli.
+                    </p>
+                </div>
+
+                <form onsubmit="handleInquirySubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Nombre y Apellido *</label>
+                            <input type="text" id="form-name" required placeholder="Ej: Lucas Martínez" oninput="updateLivePreview()" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan bg-slate-50">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Email Profesional *</label>
+                            <input type="email" id="form-email" required placeholder="ejemplo@correo.com" oninput="updateLivePreview()" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan bg-slate-50">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="form-phone" required placeholder="+54 9 351..." oninput="updateLivePreview()" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan bg-slate-50">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">DNI / Pasaporte *</label>
+                            <input type="text" id="document" required placeholder="12345678..." oninput="updateLivePreview()" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan bg-slate-50">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Modalidad de Inversión Elegida *</label>
+                            <select id="form-payment" onchange="updateLivePreview()" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan bg-slate-50 font-medium">
+                                <option value="Transferencia Contado ($607.543 - 26% OFF)">Transferencia Contado $607.543.- (- 29% OFF)</option>
+                                <option value="12x $82.520"> 12 cuotas sin interés x $82.520.-</option>
+                                <option value="Facturación a Empresa / Convenio Corporativo">Facturación a Empresa / Convenio Corporativo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Mensaje o Consulta Adicional (Opcional)</label>
+                        <textarea id="form-message" rows="2" placeholder="Quiero congelar el precio de inscripción y asegurar la bonificación de matrícula..." oninput="updateLivePreview()" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan bg-slate-50"></textarea>
+                    </div>
+
+                    <!-- Live Message Preview Box -->
+                    <div class="p-4 rounded-xl bg-slate-100 border border-slate-200 text-xs">
+                        <span class="font-bold text-slate-500 uppercase tracking-wider block mb-1">
+                            <i class="fa-brands fa-whatsapp text-emerald-600"></i> Vista previa del mensaje a enviar a Jorge:
+                        </span>
+                        <div id="live-preview-text" class="text-slate-700 font-mono text-[11px] whitespace-pre-line bg-white p-3 rounded-lg border border-slate-200">
+                            Completa los campos arriba para visualizar la solicitud...
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-4 px-6 rounded-xl shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5 text-base">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Enviar Solicitud de Reserva a Jorge De Angeli</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
     <!-- METHODOLOGY & CLASS DYNAMICS SECTION -->
     <section id="metodologia" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-bold text-brand-cyan uppercase tracking-widest mb-2">Detalle del Cursado</h2>
+                <h2 class="text-xs font-bold text-brand-cyan uppercase tracking-widest mb-2">Dinámica de Cursado</h2>
                 <h3 class="text-3xl font-heading font-extrabold text-brand-darkBlue">
-                    ¿Cómo funciona el Programa?
+                    ¿Cómo funciona el Cursado?
                 </h3>
                 <p class="mt-3 text-slate-600 text-base">
-                    Una experiencia online interactiva diseñada para integrarse perfectamente a tu rutina profesional.
+                    Una experiencia interactiva y flexible diseñada para profesionales en actividad.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-brand-cyan/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center text-xl font-bold mb-4">
                         <i class="fa-solid fa-video"></i>
                     </div>
-                    <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Encuentros en Vivo</h4>
+                    <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Clases Online en Vivo</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Clases online vía Zoom para abordar la teoría y la práctica en tiempo real. En caso de no asistir, las grabaciones quedan subidas a la plataforma.
+                        Encuentros sincrónicos por Zoom para teoría y práctica interactiva. Si no puedes asistir, todas las clases quedan grabadas en la plataforma.
                     </p>
                 </div>
 
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-brand-cyan/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-xl font-bold mb-4">
                         <i class="fa-solid fa-cubes"></i>
                     </div>
                     <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Plataforma Multimodal</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Acceso continuo a contenidos complementarios, videos, lecturas de profundización, actividades guiadas y autoevaluaciones.
+                        Acceso 24/7 a materiales, datasets, tutoriales de instalación, guías paso a paso y ejercicios de autoevaluación.
                     </p>
                 </div>
 
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-brand-cyan/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-xl font-bold mb-4">
                         <i class="fa-solid fa-users"></i>
                     </div>
-                    <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Trabajo Colaborativo</h4>
+                    <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Comunidad & Networking</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Ejercicios prácticos en equipo con profesionales de toda Latinoamérica para fomentar networking e intercambio interdisciplinario.
+                        Intercambio continuo con profesionales de diferentes industrias y países de Latinoamérica.
                     </p>
                 </div>
 
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-brand-cyan/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl font-bold mb-4">
                         <i class="fa-solid fa-diagram-project"></i>
                     </div>
-                    <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Proyecto Integrador</h4>
+                    <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Proyecto Integrador Real</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Aplicación progresiva de todo lo aprendido en un caso práctico real que se consolidará clase a clase durante los 4 meses.
+                        Desarrollarás de forma incremental un caso de negocio aplicando Power BI, SQL, Python e IA para tu portafolio.
                     </p>
                 </div>
 
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-brand-cyan/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 flex items-center justify-center text-xl font-bold mb-4">
                         <i class="fa-solid fa-headset"></i>
                     </div>
                     <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Anfitriones & Soporte</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Un equipo de anfitriones dedicados te acompañará y brindará asistencia técnica y académica durante todo el trayecto.
+                        Acompañamiento continuo por parte del equipo de anfitriones técnicos y pedagógicos durante toda la cursada.
                     </p>
                 </div>
 
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-brand-cyan/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-600 flex items-center justify-center text-xl font-bold mb-4">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                     <h4 class="font-bold text-lg text-brand-darkBlue mb-2">Acto de Colación</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        ¡Un momento especial de cierre para celebrar junto a tu cohorte los logros y metas alcanzadas al obtener tu certificación!
+                        Celebración de cierre de cohorte y entrega oficial de certificados universitarios avalados por UNC, FCEFyN y Mundos E.
                     </p>
                 </div>
             </div>
@@ -924,7 +1013,7 @@
     </section>
 
     <!-- TARGET AUDIENCE & CERTIFICATION VALUE SECTION -->
-    <section class="py-20 bg-slate-100">
+    <section class="py-20 bg-slate-100 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
@@ -935,58 +1024,58 @@
                         Perfil del Estudiante & Destinatarios
                     </h3>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Formación práctica dirigida a quienes deseen potenciar su productividad y skills profesionales a través del análisis de datos y la Inteligencia Artificial Generativa:
+                        Formación práctica dirigida a profesionales que buscan potenciar su perfil laboral a través del análisis estratégico de datos:
                     </p>
 
                     <div class="grid grid-cols-2 gap-3 text-xs font-semibold text-slate-700">
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2">
-                            <i class="fa-solid fa-bullhorn text-brand-cyan"></i> Marketing y Comunicación
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2.5 shadow-sm">
+                            <i class="fa-solid fa-bullhorn text-brand-cyan"></i> Marketing y Ventas
                         </div>
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2">
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2.5 shadow-sm">
                             <i class="fa-solid fa-briefcase text-brand-cyan"></i> Administración y Finanzas
                         </div>
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2">
-                            <i class="fa-solid fa-rocket text-brand-cyan"></i> Emprendedores
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2.5 shadow-sm">
+                            <i class="fa-solid fa-rocket text-brand-cyan"></i> Emprendedores y Consultores
                         </div>
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2">
-                            <i class="fa-solid fa-chalkboard-user text-brand-cyan"></i> Educadores
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2.5 shadow-sm">
+                            <i class="fa-solid fa-users-gear text-brand-cyan"></i> Recursos Humanos
                         </div>
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2">
-                            <i class="fa-solid fa-laptop-code text-brand-cyan"></i> Freelancers
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2.5 shadow-sm">
+                            <i class="fa-solid fa-laptop-code text-brand-cyan"></i> Freelancers y Tech
                         </div>
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2">
-                            <i class="fa-solid fa-user-tie text-brand-cyan"></i> Líderes y Gerentes
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-2.5 shadow-sm">
+                            <i class="fa-solid fa-user-tie text-brand-cyan"></i> Líderes y Mandos Medios
                         </div>
                     </div>
                 </div>
 
-                <!-- Para qué sirve la certificación (Page 7) -->
+                <!-- Para qué sirve la certificación -->
                 <div class="lg:col-span-6 bg-brand-darkBlue text-white p-8 sm:p-10 rounded-3xl shadow-xl space-y-6">
                     <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest">Valor Profesional</span>
-                    <h3 class="text-2xl sm:text-3xl font-heading font-extrabold">¿Para qué sirve la Certificación?</h3>
+                    <h3 class="text-2xl sm:text-3xl font-heading font-extrabold">¿Para qué sirve esta Certificación?</h3>
 
                     <div class="space-y-4 text-xs sm:text-sm">
                         <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
                             <i class="fa-solid fa-id-card text-brand-cyan text-xl mt-1"></i>
                             <div>
-                                <h4 class="font-bold text-white text-base">Suma experiencia a tu CV</h4>
-                                <p class="text-slate-300 mt-1">Subí tu certificado directamente a LinkedIn o adjúntalo a tu CV para validar tus competencias ante las empresas.</p>
+                                <h4 class="font-bold text-white text-base">Valida tu CV y LinkedIn</h4>
+                                <p class="text-slate-300 mt-1">Suma la certificación universitaria directamente a tu perfil para destacar en búsquedas laborales competitivas.</p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
                             <i class="fa-solid fa-chart-line text-brand-cyan text-xl mt-1"></i>
                             <div>
-                                <h4 class="font-bold text-white text-base">Mejora tu perfil profesional</h4>
-                                <p class="text-slate-300 mt-1">Acredita conocimientos prácticos en Data Analytics, destacando en los procesos de selección del mercado actual.</p>
+                                <h4 class="font-bold text-white text-base">Toma de Decisiones basada en Datos</h4>
+                                <p class="text-slate-300 mt-1">Acredita competencias en extracción, modelado, métricas y automatización asistida por IA.</p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
                             <i class="fa-solid fa-rocket text-brand-cyan text-xl mt-1"></i>
                             <div>
-                                <h4 class="font-bold text-white text-base">Impulsa tu carrera</h4>
-                                <p class="text-slate-300 mt-1">Tus nuevas capacidades técnicas te acercarán a nuevas oportunidades laborales o a alcanzar la promoción que buscas.</p>
+                                <h4 class="font-bold text-white text-base">Promoción y Crecimiento Laboral</h4>
+                                <p class="text-slate-300 mt-1">Aplica mejoras tangibles en los procesos de tu empresa u organización desde el primer mes.</p>
                             </div>
                         </div>
                     </div>
@@ -1020,7 +1109,7 @@
                         </div>
 
                         <p class="mt-6 text-slate-600 text-sm leading-relaxed italic border-l-2 border-brand-cyan pl-4">
-                            "Nuestros entrenadores son seleccionados mediante un riguroso proceso donde se evalúa su éxito real en el campo profesional para garantizar un aprendizaje directamente aplicable."
+                            "Nuestros docentes son seleccionados por su experiencia en la industria real, garantizando que cada clase sea directamente aplicable al mercado laboral."
                         </p>
                     </div>
                 </div>
@@ -1029,23 +1118,23 @@
                 <div class="lg:col-span-7 space-y-6">
                     <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest">Mundos E • Escuela de Personas y Negocios</span>
                     <h3 class="text-3xl font-heading font-extrabold text-brand-darkBlue">
-                        21 Años Transformando el Aprendizaje
+                        21 Años Impulsando la Formación Ejecutiva
                     </h3>
 
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center pt-2">
-                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                             <div class="text-2xl sm:text-3xl font-extrabold text-brand-blue">+15.000</div>
                             <div class="text-[11px] text-slate-500 font-semibold mt-1">Alumnos</div>
                         </div>
-                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                             <div class="text-2xl sm:text-3xl font-extrabold text-brand-blue">+20.000</div>
                             <div class="text-[11px] text-slate-500 font-semibold mt-1">Diplomas</div>
                         </div>
-                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                             <div class="text-2xl sm:text-3xl font-extrabold text-brand-cyan">9.5 / 10</div>
                             <div class="text-[11px] text-slate-500 font-semibold mt-1">Satisfacción</div>
                         </div>
-                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
                             <div class="text-2xl sm:text-3xl font-extrabold text-brand-blue">+70</div>
                             <div class="text-[11px] text-slate-500 font-semibold mt-1">Profesores</div>
                         </div>
@@ -1053,28 +1142,36 @@
                 </div>
             </div>
 
-            <!-- Companies Cloud (Page 9 list) -->
+            <!-- Interactive Companies Search Cloud -->
             <div class="text-center">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-6">
-                    Empresas donde trabajan nuestros alumnos:
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
+                    Empresas donde trabajan nuestros egresados:
                 </p>
-                <div class="flex flex-wrap items-center justify-center gap-2.5 max-w-5xl mx-auto">
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Mercado Libre</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Globant</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Naranja X</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Renault</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Coca-Cola Andina</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Bancor</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Santex</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Lemon Cash</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Claro</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Grupo Edisur</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Apex America</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Medifé</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Grupo Libertad</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">FCA / Fiat Chrysler</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Sanatorio Allende</span>
-                    <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Porta Hermanos</span>
+                
+                <div class="max-w-md mx-auto mb-6">
+                    <div class="relative">
+                        <input type="text" id="company-search" oninput="filterCompanies()" placeholder="Buscar empresa (ej: Globant, Mercado Libre)..." class="w-full px-4 py-2 rounded-xl border border-slate-300 text-xs focus:outline-none focus:ring-2 focus:ring-brand-cyan pl-9">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
+                    </div>
+                </div>
+
+                <div id="company-cloud" class="flex flex-wrap items-center justify-center gap-2.5 max-w-5xl mx-auto">
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Mercado Libre</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Globant</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Naranja X</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Renault</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Coca-Cola Andina</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Bancor</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Santex</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Lemon Cash</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Claro</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Grupo Edisur</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Apex America</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Medifé</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Grupo Libertad</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">FCA / Fiat Chrysler</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Sanatorio Allende</span>
+                    <span class="company-tag px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">Porta Hermanos</span>
                 </div>
             </div>
 
@@ -1082,27 +1179,32 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="py-20 bg-slate-50">
+    <section id="faq" class="py-20 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-10">
                 <h2 class="text-xs font-bold text-brand-cyan uppercase tracking-widest mb-2">Preguntas Frecuentes</h2>
                 <h3 class="text-3xl font-heading font-extrabold text-brand-darkBlue">Respuestas a tus dudas</h3>
             </div>
 
-            <div class="space-y-4">
-                <details class="bg-white p-6 rounded-2xl border border-slate-200 group">
+            <!-- Search FAQ -->
+            <div class="mb-8">
+                <input type="text" id="faq-search" oninput="filterFaq()" placeholder="Escribe tu pregunta (ej: cuotas, certificado, grabación)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan bg-white shadow-sm">
+            </div>
+
+            <div id="faq-container" class="space-y-4">
+                <details class="faq-item bg-white p-6 rounded-2xl border border-slate-200 group shadow-sm">
                     <summary class="font-bold text-brand-darkBlue text-base cursor-pointer flex items-center justify-between list-none">
-                        <span>¿Cuál es el valor del programa y los medios de pago?</span>
+                        <span>¿Cuál es el valor del programa y las opciones de pago?</span>
                         <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                        El valor regular es $517.001.- Puedes abonar <strong>$380.167.- en un solo pago por transferencia</strong> (-26% OFF exclusivo) o financiarlo en <strong>6 cuotas sin interés de $86.167.-</strong> con tarjeta de crédito. Además, si te inscribes antes del 15/08, la matrícula de $50.000 es 100% bonificada.
+                        Puedes abonar <strong>$607.543.- en un pago único por transferencia</strong> (-29% OFF exclusivo) o financiarlo en <strong> 12 cuotas fijas sin interés</strong> con tarjeta de crédito. Además, accedés a la matrícula de $50.000.-, 100% bonificada.
                     </p>
                 </details>
 
-                <details class="bg-white p-6 rounded-2xl border border-slate-200 group">
+                <details class="faq-item bg-white p-6 rounded-2xl border border-slate-200 group shadow-sm">
                     <summary class="font-bold text-brand-darkBlue text-base cursor-pointer flex items-center justify-between list-none">
-                        <span>¿Quiénes certifican el programa?</span>
+                        <span>¿Quiénes otorgan la certificación oficial?</span>
                         <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <p class="mt-3 text-sm text-slate-600 leading-relaxed">
@@ -1110,118 +1212,59 @@
                     </p>
                 </details>
 
-                <details class="bg-white p-6 rounded-2xl border border-slate-200 group">
+                <details class="faq-item bg-white p-6 rounded-2xl border border-slate-200 group shadow-sm">
                     <summary class="font-bold text-brand-darkBlue text-base cursor-pointer flex items-center justify-between list-none">
-                        <span>¿Qué sucede si falta a una clase en vivo?</span>
+                        <span>¿Qué sucede si no puedo asistir a una clase en vivo?</span>
                         <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                        Todas las clases sincrónicas en vivo por Zoom son grabadas y subidas a la plataforma virtual junto a los materiales de práctica para que puedas verlas en cualquier momento.
+                        Todas las clases sincrónicas en vivo por Zoom son grabadas en alta definición y subidas a la plataforma virtual junto con los materiales, guías y datasets para que las repases a tu propio ritmo.
                     </p>
                 </details>
 
-                <details class="bg-white p-6 rounded-2xl border border-slate-200 group">
+                <details class="faq-item bg-white p-6 rounded-2xl border border-slate-200 group shadow-sm">
                     <summary class="font-bold text-brand-darkBlue text-base cursor-pointer flex items-center justify-between list-none">
-                        <span>¿Necesito conocimientos previos avanzados?</span>
+                        <span>¿Se requieren conocimientos previos de programación o matemáticas?</span>
                         <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                        No. El programa inicia desde los fundamentos básicos de la estadística y herramientas esenciales en Excel para progresar paso a paso hacia SQL, Power BI, Python e Inteligencia Artificial.
+                        No. El programa inicia desde los fundamentos básicos de la estadística y herramientas cotidianas como Excel, avanzando de forma progresiva paso a paso hacia SQL, Power BI, Python e Inteligencia Artificial.
+                    </p>
+                </details>
+
+                <details class="faq-item bg-white p-6 rounded-2xl border border-slate-200 group shadow-sm">
+                    <summary class="font-bold text-brand-darkBlue text-base cursor-pointer flex items-center justify-between list-none">
+                        <span>¿Se realiza factura A o B para empresas?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                        Sí. Emitimos factura A o B según lo requiera tu empresa o empleador. Puedes gestionarlo de manera directa con Jorge De Angeli.
                     </p>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION & DIRECT FORM -->
-    <section id="contacto" class="py-20 hero-gradient text-white relative">
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="py-16 hero-gradient text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-white/15 flex flex-col md:flex-row items-center justify-between gap-8">
                 
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest">Admisiones Académicas</span>
-                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold">
-                        Inicia tu inscripción para el 18 de Agosto
-                    </h2>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Si tienes preguntas sobre la modalidad, convenios para empresas o deseas abonar para congelar el beneficio de la matrícula bonificada, ponte en contacto directo conmigo.
+                <div class="space-y-3 text-center md:text-left">
+                    <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest">Atención Personalizada</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white">¿Tienes preguntas adicionales?</h3>
+                    <p class="text-slate-300 text-sm max-w-xl">
+                        Jorge De Angeli, Asesor Educativo & Admisiones Académicas, responderá todas tus dudas sobre horarios, temarios y facilidades de pago.
                     </p>
-
-                    <div class="p-6 bg-white/10 rounded-2xl border border-white/15 space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl font-bold border border-emerald-500/40">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-slate-300 font-medium">Asesor Educativo y Admisiones Académicas</div>
-                                <div class="text-xl font-extrabold text-white">Jorge De Angeli</div>
-                                <div class="text-xs text-brand-cyan font-bold">+54 9 351 657-3170</div>
-                            </div>
-                        </div>
-
-                        <div class="pt-3 border-t border-white/10 flex flex-wrap gap-2.5">
-                            <a href="https://wa.me/5493516573170" 
-                               target="_blank" 
-                               class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 shadow-md">
-                                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp Directo
-                            </a>
-                            <a href="https://www.linkedin.com/in/jorgedeangeli/" 
-                               target="_blank" 
-                               class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 border border-white/15">
-                                <i class="fa-brands fa-linkedin"></i> LinkedIn
-                            </a>
-                            <a href="https://www.mundose.com" 
-                               target="_blank" 
-                               class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 border border-white/15">
-                                <i class="fa-solid fa-globe"></i> www.mundose.com
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Interactive Form sending message via WhatsApp to Jorge -->
-                <div class="lg:col-span-6">
-                    <div class="bg-white text-slate-800 p-8 rounded-3xl shadow-2xl">
-                        <h3 class="text-2xl font-bold text-brand-darkBlue mb-1">Consulta directa a Jorge De Angeli</h3>
-                        <p class="text-xs text-slate-500 mb-6">Completa el formulario y se abrirá WhatsApp con tu consulta armada automáticamente.</p>
-
-                        <form onsubmit="handleInquirySubmit(event)" class="space-y-4">
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Nombre y Apellido *</label>
-                                <input type="text" id="form-name" required placeholder="Ej: María González" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan">
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1">Email *</label>
-                                    <input type="email" id="form-email" required placeholder="ejemplo@correo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1">Teléfono / WhatsApp</label>
-                                    <input type="tel" id="form-phone" placeholder="+54 9 351..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Modalidad de pago de tu interés</label>
-                                <select id="form-payment" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan">
-                                    <option value="Transferencia contado ($380.167 - 26% OFF)">Transferencia contado ($380.167 - 26% OFF)</option>
-                                    <option value="6 cuotas sin interés ($86.167/mes)">6 cuotas sin interés ($86.167/mes)</option>
-                                    <option value="Consulta sobre facturación a empresa / convenio">Facturación a empresa / Convenios</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Consulta o Mensaje</label>
-                                <textarea id="form-message" rows="2" placeholder="Hola Jorge, quisiera anotarme y asegurar el beneficio de la matrícula bonificada..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-cyan"></textarea>
-                            </div>
-
-                            <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5">
-                                <i class="fa-brands fa-whatsapp text-lg"></i>
-                                <span>Enviar Consulta a Jorge por WhatsApp</span>
-                            </button>
-                        </form>
-                    </div>
+                <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+                    <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20tengo%20una%20consulta%20sobre%20el%20programa%20de%20Data%20Analytics" 
+                       target="_blank" 
+                       class="bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-6 py-3.5 rounded-xl shadow-lg flex items-center gap-2 transition-transform transform hover:-translate-y-0.5 text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Hablar con Jorge De Angeli</span>
+                    </a>
                 </div>
 
             </div>
@@ -1229,7 +1272,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-brand-darkBlue text-slate-400 py-10 border-t border-white/10 text-xs">
+    <footer class="bg-brand-darkBlue text-slate-400 py-10 border-t border-white/10 text-xs mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
             <div class="flex items-center justify-center gap-3 text-white font-bold text-sm flex-wrap">
                 <span>Mundos E</span>
@@ -1248,18 +1291,31 @@
     </footer>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20estoy%20viendo%20la%20página%20de%20Data%20Analytics%20y%20quiero%20hacerte%20una%20consulta" 
+    <a href="https://wa.me/5493516573170?text=Hola%20Jorge,%20estoy%20viendo%20el%20portal%20de%20Data%20Analytics%20y%20quiero%20hacerte%20una%20consulta" 
        target="_blank" 
        rel="noopener noreferrer"
        class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition-all transform hover:scale-110 group">
         <i class="fa-brands fa-whatsapp"></i>
-        <span class="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
+        <span class="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg pointer-events-none">
             Chat directo con Jorge De Angeli
         </span>
     </a>
 
     <!-- INTERACTIVE JAVASCRIPT LOGIC -->
     <script>
+        // Mobile Navigation Drawer Toggle
+        function toggleMobileNav() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars";
+            }
+        }
+
         // Syllabus Module Selection Switcher
         function selectModule(modNum) {
             for (let i = 1; i <= 4; i++) {
@@ -1285,7 +1341,20 @@
             }
         }
 
-        // WhatsApp Form Handler
+        // Live WhatsApp Message Preview Updater
+        function updateLivePreview() {
+            const name = document.getElementById('form-name').value || '[Tu Nombre]';
+            const email = document.getElementById('form-email').value || '[Tu Email]';
+            const phone = document.getElementById('form-phone').value || '[Tu Teléfono]';
+            const payment = document.getElementById('form-payment').value;
+            const message = document.getElementById('form-message').value || 'Quisiera reservar mi lugar para la cohorte del 18/08 con la matrícula 100% bonificada.';
+
+            const previewText = `Hola Jorge,\n\nMi nombre es *${name}*.\n*Email:* ${email}\n*Tel:* ${phone}\n*Opción de Pago:* ${payment}\n\n*Consulta:* ${message}`;
+            
+            document.getElementById('live-preview-text').innerText = previewText;
+        }
+
+        // WhatsApp Form Submission Handler
         function handleInquirySubmit(e) {
             e.preventDefault();
             const name = document.getElementById('form-name').value;
@@ -1294,10 +1363,41 @@
             const payment = document.getElementById('form-payment').value;
             const message = document.getElementById('form-message').value;
 
-            const text = `Hola Jorge,%0A%0AMi nombre es *${encodeURIComponent(name)}*.%0A*Email:* ${encodeURIComponent(email)}%0A*Tel:* ${encodeURIComponent(phone)}%0A*Preferencia de Pago:* ${encodeURIComponent(payment)}%0A%0A*Consulta:* ${encodeURIComponent(message || 'Quisiera asegurar mi inscripción para el 18/08 con la matrícula bonificada.')}`;
+            const text = `Hola Jorge,%0A%0AMi nombre es *${encodeURIComponent(name)}*.%0A*Email:* ${encodeURIComponent(email)}%0A*Tel:* ${encodeURIComponent(phone)}%0A*Opción de Pago:* ${encodeURIComponent(payment)}%0A%0A*Consulta:* ${encodeURIComponent(message || 'Quisiera reservar mi lugar para la cohorte del 18/08 con la matrícula 100% bonificada.')}`;
 
             window.open(`https://wa.me/5493516573170?text=${text}`, '_blank');
         }
+
+        // Company Cloud Search Filter
+        function filterCompanies() {
+            const query = document.getElementById('company-search').value.toLowerCase();
+            const tags = document.querySelectorAll('.company-tag');
+            tags.forEach(tag => {
+                if (tag.innerText.toLowerCase().includes(query)) {
+                    tag.style.display = 'inline-block';
+                } else {
+                    tag.style.display = 'none';
+                }
+            });
+        }
+
+        // FAQ Live Search Filter
+        function filterFaq() {
+            const query = document.getElementById('faq-search').value.toLowerCase();
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach(item => {
+                if (item.innerText.toLowerCase().includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Initial live preview population
+        window.addEventListener('DOMContentLoaded', () => {
+            updateLivePreview();
+        });
     </script>
 </body>
 </html>
